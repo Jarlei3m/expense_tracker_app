@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-import ExpensesSummary from "./ExpensesList";
+import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 
 const DUMMY_EXPENSES = [
@@ -29,7 +29,7 @@ const DUMMY_EXPENSES = [
     date: new Date("2021-02-19"),
   },
   {
-    id: "e4",
+    id: "e5",
     description: "Another book",
     amount: 18.59,
     date: new Date("2023-01-11"),
@@ -39,8 +39,8 @@ const DUMMY_EXPENSES = [
 function ExpensesOutput({ expenses, expensesPeriod }) {
   return (
     <View>
-      <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
-      <ExpensesList />
+      <ExpensesSummary expenses={DUMMY_EXPENSES} periodName={expensesPeriod} />
+      <ExpensesList expenses={DUMMY_EXPENSES} />
     </View>
   );
 }
