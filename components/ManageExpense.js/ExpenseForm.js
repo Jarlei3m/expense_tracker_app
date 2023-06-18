@@ -1,9 +1,12 @@
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import Input from "./Input";
 
 function ExpenseForm() {
   return (
     <View>
-      <TextInput />
+      <Input label="Amount" />
+      <Input label="Date" />
+      <Input label="Description" />
     </View>
   );
 }
