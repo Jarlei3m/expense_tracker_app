@@ -47,19 +47,19 @@ const DUMMY_EXPENSES = [
     id: "e8",
     description: "A T-shirt",
     amount: 45.99,
-    date: new Date("2023-06-16"),
+    date: new Date("2023-06-19"),
   },
   {
     id: "e9",
     description: "A book",
     amount: 14.99,
-    date: new Date("2023-06-12"),
+    date: new Date("2023-06-22"),
   },
   {
     id: "e10",
     description: "Another book",
     amount: 18.59,
-    date: new Date("2023-06-14"),
+    date: new Date("2023-06-23"),
   },
 ];
 
