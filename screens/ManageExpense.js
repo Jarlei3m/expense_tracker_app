@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/styles";
-import Button from "../components/UI/Button";
 import { ExpensesContext } from "../store/expenses-context";
 import ExpenseForm from "../components/ManageExpense.js/ExpenseForm";
+import { storeExpense } from "../utils/http";
 
 function ManageExpense({ route, navigation }) {
   const { deleteExpense, updateExpense, addExpense, expenses } =
@@ -34,8 +34,13 @@ function ManageExpense({ route, navigation }) {
     navigation.goBack();
   };
 
-  const confirmHandler = (expenseData) => {
-    isEditing ? updateExpense(expenseData) : addExpense(expenseData);
+  const confirmHandler = async (expenseData) => {
+    if (isEditing) {
+      updateExpense(expenseData);
+    } else {
+      const id = await storeExpense(expenseData);
+      addExpense({ ...expenseData, id: id });
+    }
     navigation.goBack();
   };
 
